@@ -22,7 +22,13 @@ resource "digitalocean_droplet" "web1" {
         "export PATH=$PATH:/usr/bin",
         "sudo apt update",
         # install apache2
-        "sudo apt install -y apache2"
+        "sudo apt install -y apache2",
+        # install php 
+        "sudo apt install -y php libapache2-mod-php",
+        # install my-sql extension
+        "sudo apt install -y php-mysql",
+        # install mysql-cli
+        "sudo apt install mysql-client-core-8.0"
 
     ]
   }
@@ -51,12 +57,6 @@ resource "digitalocean_droplet" "web1" {
       "export DB_PASSWORD='${digitalocean_database_cluster.db_cluster.password}'",
       "export DB_USER='${digitalocean_database_cluster.db_cluster.user}'",
       "export WEB_SERVER=web1",
-      # install php 
-      "sudo apt install -y php libapache2-mod-php",
-      # install my-sql extension
-      "sudo apt install -y php-mysql",
-      # install mysql-cli
-      "sudo apt install mysql-client-core-8.0",
       # create a table and insert some records 
       "sudo mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD < /root/query.sql",
       # modify the apache to prefer php files over html 
