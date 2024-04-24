@@ -2,7 +2,6 @@
 
 ![architecture](diagram.png)
 
-
 ## Description
 This repository contains scripts and configurations for provisioning and monitoring a cloud-based (DigitalOcean) infrastructure.
 
@@ -22,15 +21,14 @@ This repository contains scripts and configurations for provisioning and monitor
 
 ## Setup
 1. **Clone the Repository**:
-   ```bash
+```bash
    git clone https://github.com/joanatanasoff/tasks.git
    cd tasks/task2
    export TF_VAR_do_token="DO_API_TOKEN"
    terraform init
    terraform apply
-
-1.1 Variable for droplet_restart.py:
-    In order to run the script, add: 
-    ```bash
-    export DIGITALOCEAN_TOKEN="DO_API_TOKEN"
-
+```
+1.1 To run droplet_restart.py, you need to export a variable containing the API token first:
+```bash
+export DIGITALOCEAN_TOKEN="DO_API_TOKEN"
+```
