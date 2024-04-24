@@ -30,6 +30,7 @@ This repository contains scripts and configurations for provisioning and monitor
    terraform apply
 
 1.1 Variable for droplet_restart.py:
-    In order to run the script, add:
+    In order to run the script, add: 
+    ```bash
     export DIGITALOCEAN_TOKEN="DO_API_TOKEN"
 
